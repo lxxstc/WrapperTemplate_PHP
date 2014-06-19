@@ -8,10 +8,8 @@ class CrawlapiController extends WrapperController
 {
     public function actionIndex()
     {
-        $type = 'oneway';
-        $this->request['retDate'] && $type = 'round';
-        $this->request['booking'] && $type = $type.'booking';
-        $param = implode("/", $_GET);
+        $type = 'process';
+        $this->request['booking'] && $type = 'bookingInfo';
         $controller = Yii::app()->runController('crawl/'.$this->request['wrapperid'].'/'.$type); 
     }
 
