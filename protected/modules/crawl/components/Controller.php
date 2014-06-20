@@ -129,15 +129,14 @@ class Controller extends CController
         exit(CJSON::encode($data));
     }
 
-    //单程
-    public function actionOneway(){}
+    /**
+     * 网页解析,获取机票信息
+     */
+    public function actionProcess(){}
 
-    //单程booking
-    public function actionOnewaybooking(){}
+    /**
+     * booking 接口
+     */
+    public function actionBookingInfo(){}
 
-    //往返
-    public function actionRound(){}
-
-    //往返booking
-    public function actionRoundbooking(){}
 }

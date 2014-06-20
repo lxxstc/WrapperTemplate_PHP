@@ -93,7 +93,9 @@ class WrapperController extends CController
         if ($this->is_proxy == 0x01)
         {
             //test
-            $this->header[CURLOPT_PROXY] = 'http://1.179.147.2:8080';
+            $this->header['qttl'] = $this->header['CURLOPT_TIMEOUT']; 
+            $this->header['QProxy-Token'] =  'dddddd';
+            //$this->header[CURLOPT_PROXY] = 'http://1.179.147.2:8080';
         }
         $this->curl = Yii::app()->curl->setOptions($this->header);
         $this->header = array();
@@ -129,15 +131,14 @@ class WrapperController extends CController
         exit(CJSON::encode($data));
     }
 
-    //单程
-    public function actionOneway(){}
+    /**
+     * 网页解析,获取机票信息
+     */
+    public function actionProcess(){}
 
-    //单程booking
-    public function actionOnewaybooking(){}
+    /**
+     * booking 接口
+     */
+    public function actionBookingInfo(){}
 
-    //往返
-    public function actionRound(){}
-
-    //往返booking
-    public function actionRoundbooking(){}
 }
