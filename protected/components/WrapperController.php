@@ -2,7 +2,7 @@
 /**
  * @auth degang.shen
  */
-class Controller extends CController
+class WrapperController extends CController
 {
     public $layout='column1';
 
@@ -93,7 +93,9 @@ class Controller extends CController
         if ($this->is_proxy == 0x01)
         {
             //test
-            $this->header[CURLOPT_PROXY] = 'http://1.179.147.2:8080';
+            $this->header['qttl'] = $this->header['CURLOPT_TIMEOUT']; 
+            $this->header['QProxy-Token'] =  'dddddd';
+            //$this->header[CURLOPT_PROXY] = 'http://1.179.147.2:8080';
         }
         $this->curl = Yii::app()->curl->setOptions($this->header);
         $this->header = array();
